@@ -13,10 +13,10 @@ date_default_timezone_set('Europe/Paris');
 setlocale(LC_TIME, 'fr_FR.utf8', 'fra');
 $today = new DateTime();
 
-/* calculation nb days in society */
+/* calculation nb months in society */
 $dateEntrance = stringToDate('2015-03-01');
 $interval = dateDiff($today,$dateEntrance);
-$nbDaysInSociety =  (12 * $interval->format('%y') + $interval->format('%m'));
+$nbMonthsInSociety =  (12 * $interval->format('%y') + $interval->format('%m'));
 
 /* calculation my age */
 $dateOfBirth = stringToDate('1991-08-05');
@@ -36,10 +36,10 @@ $pdf->useTemplate($tplIdx, 0, 0, 210);
 $pdf->AddFont('MyriadPro-Regular','','MyriadPro-Regular.php');
 $pdf->SetFont('MyriadPro-Regular','',9);
 
-/* display num days in society */
+/* display num months in society */
 $pdf->SetTextColor(0, 0, 0);
 $pdf->SetXY(151.4, 74.2);
-$pdf->Write(0, $nbDaysInSociety);
+$pdf->Write(0, $nbMonthsInSociety);
 
 /* display my age */
 $pdf->SetTextColor(255, 255, 255);
